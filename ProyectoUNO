@@ -74,11 +74,49 @@ def gen5():
 		mazo8.append(cartas5)
 	return mazo8
 
-#FUNCION PARA SUMAR CARTAS A LOS MAZOS
+#FUNCIONES PARA SUMAR CARTAS A LOS MAZOS
+#+2
 def gen6(lista2):
 	gen()
 	for f in range(2):
 		lista2.append(random.choice(mazo))
+#+4
+def gen7(lista2):
+	gen()
+	for f in range(4):
+		lista2.append(random.choice(mazo))
+
+
+#FUNCION QUE PERMITE EL CAMBIO DE COLOR SOBRE EL +4
+def cambio():
+	f=6
+	f=int(input("""\n	Ingresa el numero con el color que deseas poner: 
+		1.- ROJO
+		2.- AZUL
+		3.- VERDE
+		4.- AMARILLO 
+		= """))
+	os.system("cls")
+	if f==1:
+		print("\n COLOR EN LA MESA: ROJO")
+		r.clear()
+		r.append("R")
+		r.append("ROJO")
+	elif f==2:
+		print("\n COLOR EN LA MESA: AZUL")
+		r.clear()
+		r.append("A")
+		r.append("AZUL")
+	elif f==3:
+		print("\n COLOR EN LA MESA: VERDE")
+		r.clear()
+		r.append("V")
+		r.append("VERDE")
+	elif f==4:
+		print("\n COLOR EN LA MESA: AMARILLO")
+		r.clear()
+		r.append("A")
+		r.append("AMARILLO")
 
 #CONDICIONAL PARA CARTAS ESPECIALES	
 def condi(lista,x):
@@ -97,45 +135,47 @@ def condi(lista,x):
 			lista.pop(x-1)
 		else:
 			print("ERROR")
+
 	#+2
 	elif lista[x-1] in mazo8:
 		if lista==mazo1:
 			os.system("cls")
 			print("\nCARTA EN MESA: ",lista[x-1])
-			print("\nEL JUGADOR 2 HA COMIDO 2")
+			print("\nEL JUGADOR 2 HA COMIDO 2 CARTAS")
 			lista.pop(x-1)
 			gen6(mazo2)
 			block()
 		elif lista==mazo2:
 			os.system("cls")
 			print("\nCARTA EN MESA: ",lista[x-1])
-			print("\nEL JUGADOR 3 HA COMIDO 2")
+			print("\nEL JUGADOR 3 HA COMIDO 2 CARTAS")
 			lista.pop(x-1)
 			gen6(mazo3)
 			block1()
 		elif lista==mazo3:
 			os.system("cls")
 			print("\nCARTA EN MESA: ",lista[x-1])
-			print("\nEL JUGADOR 4 HA COMIDO 2")
+			print("\nEL JUGADOR 4 HA COMIDO 2 CARTAS")
 			lista.pop(x-1)
 			gen6(mazo4)
 			block2()
 		elif lista==mazo4:
 			os.system("cls")
 			print("\nCARTA EN MESA: ",lista[x-1])
-			print("\nEL JUGADOR 1 HA COMIDO 2")
+			print("\nEL JUGADOR 1 HA COMIDO 2 CARTAS")
 			lista.pop(x-1)
 			gen6(mazo1)
 			block3()
 		else:
 			print("ERROR")
+
 	#BLOQUEOS
 	elif lista[x-1] in mazo7:
 		if lista==mazo1:
 			os.system("cls")
 			print("\n 	CARTA EN MESA: ",lista[x-1])
 			print("\n 	EL JUGADOR 2 HA SIDO BLOQUEADO")
-			lista.pop(x-1)	
+			lista.pop(x-1)
 			block()
 		elif lista==mazo2:
 			os.system("cls")
@@ -156,8 +196,10 @@ def condi(lista,x):
 			block3()	
 		else:
 			print("ERROR")
+
+	#CAMBIO DE COLOR
 	elif lista[x-1]=="CAMBIO DE COLOR":
-		f=int(input("""\n		Ingresa el numero con el color que deseas poner: 
+		f=int(input("""\n	Ingresa el numero con el color que deseas poner: 
 		1.- ROJO
 		2.- AZUL
 		3.- VERDE
@@ -186,10 +228,56 @@ def condi(lista,x):
 			r.append("AMARILLO")
 		else:
 			print("ERROR")
+
+	#+4 CAMBIO DE COLOR
+	elif lista[x-1]=="+4 CAMBIO DE COLOR":
+		if lista==mazo1:
+			os.system("cls")
+			print("\nCARTA EN MESA: ",lista[x-1])
+			print("\nEL JUGADOR 2 HA COMIDO 4 CARTAS")
+			lista.pop(x-1)
+			gen7(mazo2)
+			cambio()
+			block()
+		elif lista==mazo2:
+			os.system("cls")
+			print("\nCARTA EN MESA: ",lista[x-1])
+			print("\nEL JUGADOR 3 HA COMIDO 4 CARTAS")
+			lista.pop(x-1)
+			gen7(mazo3)
+			cambio()
+			block1()
+		elif lista==mazo3:
+			os.system("cls")
+			print("\nCARTA EN MESA: ",lista[x-1])
+			print("\nEL JUGADOR 4 HA COMIDO 4 CARTAS")
+			lista.pop(x-1)
+			gen7(mazo4)
+			cambio()
+			block2()
+		elif lista==mazo4:
+			os.system("cls")
+			print("\nCARTA EN MESA: ",lista[x-1])
+			print("\nEL JUGADOR 1 HA COMIDO 4 CARTAS")
+			lista.pop(x-1)
+			gen7(mazo1)
+			cambio()
+			block3()
+		else:
+			print("ERROR")
 	else:
 		os.system("cls")
 		print("\n CARTA EN MESA: ",lista[x-1])
 		lista.pop(x-1)
+
+def eva2(lista5,q):
+	s=q.split(" ")
+	n="jiji"
+	w=0
+	while n[0]!=s[0] and n[1]!=s[1] and n[0]!='+4' and lista5[w-1]!='CAMBIO DE COLOR' :
+		w=int(input(" 	Ingresa la posicion de la carta que deseas tirar: "))  
+		n=lista5[w-1].split(" ")
+	condi(lista5,w)
 
 #CONDICIONAL PARA TIRAR CARTAR 
 def eva(lista4):
@@ -207,14 +295,6 @@ def eva(lista4):
 			print("\n CARTA EN MESA: ",q)
 			mano(lista4)
 			h=4
-
-def eva2(lista5,q):
-	s=q.split(" ")
-	n="jiji"
-	while n[0]!=s[0] and n[1]!=s[1]:
-		w=int(input(" 	Ingresa la posicion de la carta que deseas tirar: "))  
-		n=lista5[w-1].split(" ")
-	condi(lista5,w)
 
 ##ARREGLAR ESTA PARTE PARA QUE SOLO SEA UN BUCLE
 #BUCLE INICIAL
@@ -348,4 +428,3 @@ mazo4=(random.sample(mazo,7))
 
 #CODIGO PRINCIPAL
 bucle()
-
