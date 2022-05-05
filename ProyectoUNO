@@ -18,7 +18,7 @@ mazo8=[]
 #OTRA LISTA
 mazo11=[]
 q="2"
-r=[]
+s=[]
 
 col=('ROJO','AMARILLO','AZUL','VERDE')
 num3=('0','1','2','3','4','5','6','7','8','9','REVERSO','BLOQUEO','+2')
@@ -86,7 +86,6 @@ def gen7(lista2):
 	for f in range(4):
 		lista2.append(random.choice(mazo))
 
-
 #FUNCION QUE PERMITE EL CAMBIO DE COLOR SOBRE EL +4
 def cambio():
 	f=6
@@ -123,16 +122,21 @@ def condi(lista,x):
 	#REVERSO
 	if lista[x-1] in mazo6:
 		if lista==mazo1:
-			oper(lista,x)
+			print("\nCARTA EN MESA: ",lista[x-1])
+			lista.pop(x-1)
+			bucle2()
 		elif lista==mazo2:
 			print("\nCARTA EN MESA: ",lista[x-1])
 			lista.pop(x-1)
+			bucle3()
 		elif lista==mazo3:
 			print("\nCARTA EN MESA: ",lista[x-1])
 			lista.pop(x-1)
+			bucle4()
 		elif lista==mazo4:
 			print("\nCARTA EN MESA: ",lista[x-1])
 			lista.pop(x-1)
+			bucle5()
 		else:
 			print("ERROR")
 
@@ -173,8 +177,8 @@ def condi(lista,x):
 	elif lista[x-1] in mazo7:
 		if lista==mazo1:
 			os.system("cls")
-			print("\n 	CARTA EN MESA: ",lista[x-1])
-			print("\n 	EL JUGADOR 2 HA SIDO BLOQUEADO")
+			print("\n CARTA EN MESA: ",lista[x-1])
+			print("\n EL JUGADOR 2 HA SIDO BLOQUEADO")
 			lista.pop(x-1)
 			block()
 		elif lista==mazo2:
@@ -313,6 +317,88 @@ def bucle():
 	JUGADOR 3: """)
 		mano(mazo3)
 		eva(mazo3)
+		print("""
+	JUGADOR 4: """)
+		mano(mazo4)
+		eva(mazo4)
+
+#REVERSOS
+#REVERSOS DESDE JUGADOR1
+def bucle2():
+	x=1
+	while(x==1):
+		print("""
+	JUGADOR 4: """)
+		mano(mazo4)
+		eva(mazo4)
+		print("""
+	JUGADOR 3: """)
+		mano(mazo3)
+		eva(mazo3)
+		print("""
+	JUGADOR 2: """)
+		mano(mazo2)
+		eva(mazo2)
+		print("""
+	JUGADOR 1: """)
+		mano(mazo1)
+		eva(mazo1)
+#REVERSOS DESDE JUGADOR2
+def bucle3():
+	x=1
+	while(x==1):
+		print("""
+	JUGADOR 1: """)
+		mano(mazo1)
+		eva(mazo1)
+		print("""
+	JUGADOR 4: """)
+		mano(mazo4)
+		eva(mazo4)
+		print("""
+	JUGADOR 3: """)
+		mano(mazo3)
+		eva(mazo3)
+		print("""
+	JUGADOR 2: """)
+		mano(mazo2)
+		eva(mazo2)
+#REVERSOS DESDE JUGADOR3
+def bucle4():
+	x=1
+	while(x==1):
+		print("""
+	JUGADOR 2: """)
+		mano(mazo2)
+		eva(mazo2)
+		print("""
+	JUGADOR 1: """)
+		mano(mazo1)
+		eva(mazo1)
+		print("""
+	JUGADOR 4: """)
+		mano(mazo4)
+		eva(mazo4)
+		print("""
+	JUGADOR 3: """)
+		mano(mazo3)
+		eva(mazo3)
+#REVERSOS DESDE JUGADOR4
+def bucle5():
+	x=1
+	while(x==1):
+		print("""
+	JUGADOR 3: """)
+		mano(mazo3)
+		eva(mazo3)
+		print("""
+	JUGADOR 2: """)
+		mano(mazo2)
+		eva(mazo2)
+		print("""
+	JUGADOR 1: """)
+		mano(mazo1)
+		eva(mazo1)
 		print("""
 	JUGADOR 4: """)
 		mano(mazo4)
