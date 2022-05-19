@@ -167,23 +167,12 @@ def listagrande(lista8,v):
 		print("\n > CARTA EN MESA: ",lista8[v-1])
 		lista8.pop(v-1)
 		eva5(lista8)
-def listagrande2(lista9,v):
-	if lista9 in biger:
-		os.system("cls")
-		eva3(lista9[v-1])
-		lista9.pop(v-1)
-		eva5(lista9)
-def listagrande3(lista10,v):
+
+def listagrande4(lista10,v):
 	if lista10 in biger:
-		os.system("cls")
 		eva3(lista10[v-1])
 		lista10.pop(v-1)
 		eva5(lista10)
-def listagrande4(lista11,v):
-	if lista11 in biger:
-		eva3(lista11[v-1])
-		lista11.pop(v-1)
-		eva5(lista11)
 
 #CONDICIONAL PARA CARTAS ESPECIALES	
 def condi(lista,x):
@@ -222,30 +211,26 @@ def condi(lista,x):
 				print("ERROR")
 	#+2
 	elif lista[x-1] in mazo8:
-		if lista==mazo1:
 		#SENTIDO HORARIO
-			if d==0 or d%2==0:
-				listagrande2(lista,x)
+		if d==0 or d%2==0:
+			if lista==mazo1:
+				listagrande(lista,x)
 				gen6(mazo2)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 2 SE LE SUMAN 2 CARTAS ~~")
 				block()
 			elif lista==mazo2:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo3)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 3 SE LE SUMAN 2 CARTAS ~~")
 				block1()
 			elif lista==mazo3:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo4)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 4 SE LE SUMAN 2 CARTAS ~~")
 				block2()
 			elif lista==mazo4:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo1)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 1 SE LE SUMAN 2 CARTAS ~~")
 				block3()
 			else:
@@ -253,27 +238,23 @@ def condi(lista,x):
 		elif d%2!=0:
 			#SENTIDO ANTI-HORARIO
 			if lista==mazo1:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo4)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 4 SE LE SUMAN 2 CARTAS ~~")
 				block4()
 			elif lista==mazo2:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo1)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 1 SE LE SUMAN 2 CARTAS ~~")
 				block7()
 			elif lista==mazo3:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo2)
-				print("\n ~ CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 2 SE LE SUMAN 2 CARTAS ~~")
 				block6()
 			elif lista==mazo4:
-				listagrande2(lista,x)
+				listagrande(lista,x)
 				gen6(mazo3)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
 				print("\n  ~~ AL JUGADOR 3 SE LE SUMAN 2 CARTAS ~~")
 				block5()	
 			else:
@@ -283,23 +264,19 @@ def condi(lista,x):
 	#SENTIDO HORARIO
 		if d==0 or d%2==0:
 			if lista==mazo1:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 2 HA SIDO BLOQUEADO ~~")
 				block()
 			elif lista==mazo2:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 3 HA SIDO BLOQUEADO ~~")
 				block1()
 			elif lista==mazo3:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 4 HA SIDO BLOQUEADO ~~")
 				block2()
 			elif lista==mazo4:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 1 HA SIDO BLOQUEADO ~~")
 				block3()	
 			else:
@@ -307,23 +284,19 @@ def condi(lista,x):
 		elif d%2!=0:
 			#SENTIDO ANTI-HORARIO
 			if lista==mazo1:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 4 HA SIDO BLOQUEADO ~~")
 				block4()
 			elif lista==mazo2:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 1 HA SIDO BLOQUEADO ~~")
 				block7()
 			elif lista==mazo3:
-				listagrande3(lista,x)
-				print("\n ~ CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 2 HA SIDO BLOQUEADO ~~")
 				block6()
 			elif lista==mazo4:
-				listagrande3(lista,x)
-				print("\n > CARTA EN MESA: ",s[0],"",s[1])
+				listagrande(lista,x)
 				print("\n  ~~ EL JUGADOR 3 HA SIDO BLOQUEADO ~~")
 				block5()	
 			else:
@@ -407,12 +380,10 @@ def eva(lista4):
 				n=lista4[w-1].split(" ")
 			condi(lista4,w)
 		elif h==2:
-			p=int(input("	¿Cuantas cartas deseas tomar?: "))
 			gen()
-			for f in range(p):
-				lista4.append(random.choice(mazo))
+			lista4.append(random.choice(mazo))
 			os.system("cls")
-			print("\nCARTA EN MESA: ",s[0],"",s[1])
+			print("\n > CARTA EN MESA: ",s[0],"",s[1])
 			letreros(lista4)
 			mano(lista4)
 			h=5
